@@ -1,0 +1,11 @@
+1. Upgradable contract. 
+
+2. Minting and burning of ZAI using Ether. 3% above or below an oracle pricefeed, such that the contract only acts on recent price feeds and then closes the burning/minting of ZAI. 
+
+3. A means to pull the Ether out, sell it and keep ZAR in reserves to later feed to the burner/minter again. This also allows the backing bank account to be kept secret.
+
+4. Since the contract is upgradable, the idea is to move it to an algorithmic token later on or a Maker like CDP system.
+
+5. Include native meta transaction. This allows people to use it directly on Ethereum without Ether.
+
+6. Spin up a PoA sidechain for ZAI and port DAIHard.Exchange and the burner wallet.

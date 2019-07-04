@@ -5,7 +5,7 @@ import "./Proxy.sol";
 import "./DetailedToken.sol";
 import "./KeyValueStorage.sol";
 
-contract ZAI is StorageConsumer, Proxy, DetailedToken {
+contract ZAI is Migratable, StorageConsumer, Proxy, DetailedToken {
 
     constructor(KeyValueStorage storage_)
         public
