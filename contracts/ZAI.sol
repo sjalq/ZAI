@@ -4,10 +4,9 @@ import "./StorageConsumer.sol";
 import "./Proxy.sol";
 import "./DetailedToken.sol";
 import "./KeyValueStorage.sol";
-import "openzeppelin-solidity\contracts\token\ERC20\ERC20Burnable.sol";
-import "openzeppelin-solidity\contracts\token\ERC20\ERC20Mintable.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/ERC20Burnable.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/ERC20Mintable.sol";
 
-node_modules\openzeppelin-solidity\contracts\token\ERC20\ERC20Burnable.sol
 
 contract ZAI is StorageConsumer, Proxy, DetailedToken, ERC20Burnable, ERC20Mintable {
 

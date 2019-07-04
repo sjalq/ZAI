@@ -12,12 +12,12 @@ pragma solidity ^0.5.0;
 
 contract BOLR {
 
-    function Buy()    {
+    function Buy()  public  {
 
 
     }
 
-    function Sell()     {
+    function Sell() public   {
 
         
     }
