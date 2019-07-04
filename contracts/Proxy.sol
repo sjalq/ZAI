@@ -22,12 +22,12 @@ contract Proxy is Ownable {
     {
         require(_implementation != impl);
         _implementation = impl;
-        Upgraded(impl);
+        emit Upgraded(impl);
     }
 
-    function ()
+    function () external
         payable
-        public
+
     {
         address _impl = implementation();
         require(_impl != address(0));

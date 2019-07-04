@@ -57,6 +57,6 @@ contract TokenDelegate is StorageStateful
     function setBalance(address balanceHolder, uint256 amount)
         internal
     {
-        _storage.setUint(keccak256("balances", balanceHolder), amount);
+        _storage.setUint(keccak256(abi.encodePacked(balanceHolder)), amount);
     }
 }
