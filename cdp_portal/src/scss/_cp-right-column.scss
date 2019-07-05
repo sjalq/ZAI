@@ -1,0 +1,447 @@
+
+.right-column {
+	z-index: 0;
+	background-color: $bg-darkgrey;
+	width: 340px;
+	min-height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	transition: right 0.3s ease-in;
+	.is-connected & {
+		border-left: 1px solid #414040;
+		@include respond-to(m) {
+			border-left: none;
+		}
+	}
+
+	@include respond-to(m) {
+		width: 100%;
+		position: relative;
+		display: inline-block;
+	}
+	// large Screen layout
+	@include respond-to(xl) {
+		width: 25%;
+	}
+
+	// headlines in right column
+	h1, h2, h3, h4, h5, h6 {
+		display: block;
+		margin-top: 0;
+	}
+
+	.heading {
+		position: relative;
+
+		div.back-arrow {
+			position: absolute;
+			width: 50px;
+			height: 100%;
+			cursor: pointer;
+
+			svg {
+				float: left;
+				position: absolute;
+				left: 20px;
+				top: calc(50% - 9px);
+
+				path {
+					fill: #d8d8d8;
+				}
+			}
+
+			&:hover svg path {
+				fill: #fff;
+			}
+		}
+	}
+
+	.no-account section {
+		margin-bottom: 1rem;
+		text-align: center;
+		.helper-text {
+			font-size: 0.95rem;
+			margin: 2rem 0 2.1rem;
+		}
+		a {
+			display: block;
+			user-select: none;
+			font-size: 1.1rem;
+			color: #fff;
+			text-align: left;
+			text-decoration: none;
+			letter-spacing: 0.02rem;
+			border: 1px solid #c0c0c0;
+			padding: 0.8rem 0;
+			width: 60%;
+			margin: 3px auto;
+			margin-bottom: 2rem;
+			&:hover {
+				background-color: #2d404c;
+			}
+			.provider-icon {
+				float: left;
+				margin-left: 1.95rem;
+				margin-right: 1.8rem;
+				display: block;
+				height: auto;
+				width: 24px;
+			}
+
+			svg {
+				max-height: 21px;
+				width: 18px;
+				height: auto;
+				margin-top: 1px;
+				&.alphawallet {
+                    margin-top: 2px !important;
+				}
+				&.trezor {
+                    margin-top: 0;
+				}
+				@include respond-to(xl) {
+					margin-top: 3px;
+				}
+			}
+			&.web-wallet svg {
+		    margin-top: 1px;
+				&.mist {
+					margin-top: -1px;
+				}
+				&.parity {
+					margin-top: 0;
+					width: 23px;
+				}
+				&.imtoken-icon {
+					margin-top: 3px;
+				}
+				@include respond-to(xl) {
+					margin-top: 4px;
+					&.metamask {
+						margin-top: 4px;
+					}
+					&.parity, &.mist {
+						margin-top: 3px;
+					}
+				}
+			}
+
+		}
+	}
+
+	// boxes in right column
+	.right-column-content {
+		padding: 0;
+		h2 {
+			&.wallet {
+				position: relative;
+				text-align: left;
+				padding-left: 25px;
+				padding-right: 25px;
+				margin-bottom: 0;
+				border-bottom: none;
+
+				.identicon {
+					margin-right: 14px;
+					float: left;
+					position: relative;
+					top: -2px;
+					@include respond-to(xl) {
+						top: 2px;
+					}
+				}
+			}
+			user-select: none;
+			font-size: 1.3rem;
+			background-color: #202930;
+			padding: 1.5rem 0;
+			border-bottom: 1px solid #595f62;
+			color: #fff;
+			text-align: center;
+			letter-spacing: 0.02rem;
+		}
+
+		@include respond-to(m) {
+			display: inline-block;
+			width: 100%;
+		}
+
+		h3 {
+			padding-top: 1em;
+		}
+	}
+
+	// Wallet
+	ul.wallet {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		li {
+			font-size: 14px;
+			margin-bottom: 4px;
+		}
+	}
+	.wallet-id {
+	  position: absolute;
+	  display: block;
+	  text-align: right;
+	  right: 50px;
+	  top: 50%;
+	  font-size: 0.75em;
+	  line-height: 1;
+
+	  a {
+	    color: $text-grey;
+	    text-decoration: none;
+	    position: relative;
+	    top: -0.45rem;
+	  }
+	}
+
+	// footer
+	.footer {
+		text-align: center;
+		color: #858f99;
+		font-size: 1.1rem;
+		font-weight: 200;
+		letter-spacing: 0.01rem;
+		margin-top: 1rem;
+		span.separator {
+			padding: 0 0.5rem;
+			font-weight: inherit;
+			color: inherit;
+		}
+		@include respond-to(m) {
+			margin-top: 2em;
+		}
+	}
+
+
+
+	// medium Screen layout
+	@include respond-to(m) {
+		.dialog-open & {
+			padding-bottom: 300px;
+		}
+	}
+}
+
+.right-column {
+
+	.switch-ledger-type {
+		text-decoration: none;
+		svg {
+			margin-right: 5px;
+			position: relative;
+			top: 2px;
+			g {
+				transition: stroke .2s ease-in;
+			}
+		}
+		&:hover svg g {
+			stroke: #ffffff;
+		}
+	}
+
+	h2 {
+		&.connect-success {
+			border-bottom-color: #1ABC9C;
+			border-bottom-width: 2px;
+		}
+		&.connect-fail {
+			border-bottom-color: #FF7F7F;
+			border-bottom-width: 2px;
+		}
+	}
+	// Ledger connection failed bullet points
+	ol {
+		color: #fff;
+		margin: 2.5rem 2rem 3rem 1rem;
+		li {
+			margin-top: 1rem;
+			margin-bottom: 2.5rem;
+			padding-left: 0.3rem;
+		}
+	}
+
+	// Top right balances table
+	table {
+		width: 100%;
+		border-spacing: 0;
+		border-bottom: 1px solid rgba(89, 95, 98, 0.7);
+		thead {
+			th {
+				text-align: left;
+				text-transform: uppercase;
+				font-size: 0.8rem;
+				font-weight: 300;
+				padding: 0.6rem 1.4rem;
+			}
+		}
+		tbody {
+			tr:nth-child(2n+1) {
+				background-color: #202930;
+			}
+			tr {
+				td {
+					font-size: 1.2rem;
+					font-weight: 300;
+					color: #fff;
+					letter-spacing: 0.03rem;
+					padding: 1.2rem 1.4rem 1.0rem;
+					.usd-equivalent {
+						color: #7A7A7A;
+						font-size: 0.9rem;
+						margin-top: 0.25rem;
+					}
+				}
+				td.send-col {
+					svg {
+						position: relative;
+						left: 3px;
+						top: 3px;
+						path {
+							transition: fill 0.2s ease-out;
+						}
+						&:hover path {
+							fill: #fff;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.active-network-section {
+		color: white;
+		border-bottom: 1px solid rgba(89, 95, 98, 0.7);
+		padding: 0;
+		p {
+			max-width: unset;
+		}
+	}
+	.info-section {
+		padding: 1rem 3rem;
+		border-bottom: 0;
+		h2 {
+			font-size: 1.8rem;
+			font-weight: 200;
+			background-color: unset;
+			padding: 0;
+			border: none;
+			color: #9AA3AD;
+			text-align: left;
+			letter-spacing: 0.02rem;
+			clear: both;
+			margin: 1rem 0;
+		}
+		h3 {
+			clear: both;
+			padding: 0;
+		}
+		.value {
+			font-size: 1.4rem;
+			font-weight: 600;
+		}
+		.price-info {
+			h3 {
+				float: left;
+			}
+			.value {
+				float: right;
+			}
+			h3, .value {
+				line-height: 3.5rem;
+			}
+		}
+		.price-info {
+			.value {
+				display: block;
+			}
+		}
+		.line {
+			display: inline-flex;
+			background-color: #444C52;
+			height: 1px;
+			width: 100%;
+			margin: 2rem 0 1.4rem;
+			clear: both;
+		}
+		.cdp-info {
+			h2 {
+				margin: 1rem 0 1.5rem;
+			}
+			.value {
+				margin-bottom: 1rem;
+			}
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+
+	// Send token
+	.send-token {
+		section {
+			width: 80%;
+			margin: 0 auto;
+
+			label {
+				font-size: 1rem;
+				letter-spacing: 0.04rem;
+				font-weight: 200;
+				user-select: none;
+			}
+
+			.below-input-info {
+				color: #fff;
+				font-weight: 200;
+				font-size: 0.9rem;
+			}
+
+			button.sidebar-btn {
+				min-width: 105px;
+			}
+
+			input[type="text"], input[type="number"] {
+				background-color: #2b3943;
+				box-shadow: none;
+				color: #e4e4e4;
+				border: 1px solid #979797;
+				height: 3.1rem;
+
+				&.has-error {
+					border-color: #cc3121 !important;
+				}
+				padding: 0.8rem;
+				font-size: 1.1rem;
+				font-weight: 300;
+				border-radius: 2px;
+				width: 100%;
+				margin-top: 0.5rem;
+
+				&:active, &:focus {
+					color: #fff;
+					border-color: #1abc9c;
+					box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, 0.15);
+				}
+			}
+		}
+	}
+
+	.green-dot, .purple-dot {
+		display: inline-block;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		margin-right: 5px;
+	}
+	.green-dot {
+		background: #1ABC9C;
+	}
+	.purple-dot {
+		background: #690496;
+	}
+
+}

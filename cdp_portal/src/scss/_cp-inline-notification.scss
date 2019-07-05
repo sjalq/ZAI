@@ -1,0 +1,100 @@
+.inline-notification {
+  display: inline-block;
+  position: relative;
+  clear: both;
+  background-color: $white-two;
+  color: #26323a;
+  padding: 1rem 1.3rem !important;
+  margin: 2rem 0 1rem;
+  border-radius: 2px;
+  min-width: 250px;
+  .caption {
+    position: relative;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    margin-left: 2.4rem;
+  }
+  .message {
+    position: relative;
+    font-size: 1.1rem;
+    @include respond-to(xl) {
+      font-size: 1rem;
+    }
+    font-weight: 200;
+    &.has-button {
+      padding-right: 12rem;
+      @include respond-to('s+') {
+        padding-right: 0;
+        padding-bottom: 4rem;
+      }
+    }
+    &.no-caption {
+      margin-left: 2.7rem;
+      @include respond-to(xl) {
+        margin-left: 2.5rem;
+      }
+    }
+  }
+  button {
+    min-width: 10rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 0;
+  }
+  // Close button
+  svg.close-button {
+    position: relative;
+    float: right;
+    cursor: pointer;
+    overflow: hidden;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    path + g {
+      stroke: #2B3943;
+    }
+    &:hover path + g {
+      stroke: lighten(#2B3943, 20%);
+    }
+  }
+  // Icon
+  svg.notification-icon {
+    float: left;
+    position: absolute;
+    width: 21px;
+    height: 19px;
+    top: 1.1rem;
+    @include respond-to(xl) {
+      top: 1.2rem;
+    }
+    path {
+      fill: #26323A;
+    }
+  }
+  &.is-warning {
+    svg.notification-icon path {
+      fill: #202930;
+    }
+    & {
+      background-color: #FBAE17;
+      color: #2B3943;
+    }
+  }
+  &.is-error {
+    svg.notification-icon path {
+      fill: $white;
+    }
+    & {
+      background-color: #C0392B;
+      color: $white;
+    }
+  }
+  &.is-stability-fee-warning {
+    border-radius: 5px;
+    padding: unset !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}

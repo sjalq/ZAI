@@ -1,0 +1,39 @@
+.__react_component_tooltip {
+  background-color: #ffffff;
+  box-shadow: 0 -2px 8px 0 rgba(0, 0, 0, 0.4);
+  opacity: 1 !important;
+  z-index: 10000;
+  pointer-events: all;
+  max-width: 410px !important;
+  @include respond-to(s) {
+    max-width: 200px !important;
+  }
+  a:hover {
+    color: $maker-green;
+  }
+  a.more-info {
+    // margin-left: 5px;
+  }
+}
+
+.tooltip-hint {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-left: 0.4rem;
+  top: 0.15rem;
+  width: 12px;
+  height: 12px;
+  @include respond-to(xl) {
+    width: 13px;
+    height: 13px;
+    top: 1px;
+  }
+
+  path {
+    fill: $text-grey;
+  }
+  &:hover path {
+    fill: $silver;
+  }
+}
