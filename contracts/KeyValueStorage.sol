@@ -1,75 +1,117 @@
 pragma solidity ^0.5.0;
 
+
 contract KeyValueStorage
 {
-    mapping(address => mapping(bytes32 => uint256)) _uintStorage;
-    mapping(address => mapping(bytes32 => address)) _addressStorage;
-    mapping(address => mapping(bytes32 => bool)) _boolStorage;
+    mapping(address => mapping(bytes32 => uint256)) public uints;
+    mapping(address => mapping(bytes32 => address)) public addresses;
+    mapping(address => mapping(bytes32 => bool)) public bools;
+    mapping(address => mapping(bytes32 => string)) public strings;
+    mapping(address => mapping(bytes32 => bytes)) byteses;
 
     /**** Get Methods ***********/
 
-    function getAddress(bytes32 key)
+    function getAddress(bytes memory _key)
         public
         view
-        returns (address)
+        returns (address _result)
     {
-        return _addressStorage[msg.sender][key];
+        return addresses[msg.sender][keccak256(_key)];
     }
 
-    function getUint(bytes32 key)
+    function getUint(bytes memory _key)
         public
         view
-        returns (uint)
+        returns (uint _result)
     {
-        return _uintStorage[msg.sender][key];
+        return uints[msg.sender][keccak256(_key)];
     }
 
-    function getBool(bytes32 key)
+    function getBool(bytes memory _key)
         public
         view
-        returns (bool)
+        returns (bool _result)
     {
-        return _boolStorage[msg.sender][key];
+        return bools[msg.sender][keccak256(_key)];
+    }
+
+    function getString(bytes memory _key)
+        public
+        view
+        returns (string memory _result)
+    {
+        return strings[msg.sender][keccak256(_key)];
+    }
+
+    function getBytes(bytes memory _key)
+        public
+        view
+        returns (bytes memory _result)
+    {
+        return byteses[msg.sender][keccak256(_key)];
     }
 
     /**** Set Methods ***********/
 
-    function setAddress(bytes32 key, address value)
+    function setAddress(bytes memory _key, address _value)
         public
     {
-        _addressStorage[msg.sender][key] = value;
+        addresses[msg.sender][keccak256(_key)] = _value;
     }
 
-    function setUint(bytes32 key, uint value)
+    function setUint(bytes memory _key, uint _value)
     public
     {
-        _uintStorage[msg.sender][key] = value;
+        uints[msg.sender][keccak256(_key)] = _value;
     }
 
-    function setBool(bytes32 key, bool value)
+    function setBool(bytes memory _key, bool _value)
         public
     {
-         _boolStorage[msg.sender][key] = value;
+         bools[msg.sender][keccak256(_key)] = _value;
+    }
+
+    function setString(bytes memory _key, string memory _value)
+    public
+    {
+        strings[msg.sender][keccak256(_key)] = _value;
+    }
+
+    function setBytes(bytes memory _key, bytes memory _value)
+        public
+    {
+         byteses[msg.sender][keccak256(_key)] = _value;
     }
 
     /**** Delete Methods ***********/
 
-    function deleteAddress(bytes32 key)
+    function deleteAddress(bytes memory _key)
         public
     {
-        delete _addressStorage[msg.sender][key];
+        delete addresses[msg.sender][keccak256(_key)];
     }
 
-    function deleteUint(bytes32 key)
+    function deleteUint(bytes memory _key)
         public
     {
-        delete _uintStorage[msg.sender][key];
+        delete uints[msg.sender][keccak256(_key)];
     }
 
-    function deleteBool(bytes32 key)
+    function deleteBool(bytes memory _key)
         public
     {
-        delete _boolStorage[msg.sender][key];
+        delete bools[msg.sender][keccak256(_key)];
     }
 
+    function deleteStrings(bytes memory _key)
+        public
+    {
+        delete strings[msg.sender][keccak256(_key)];
+    }
+
+    function deleteBytes(bytes memory _key)
+        public
+    {
+        delete byteses[msg.sender][keccak256(_key)];
+    }
 }

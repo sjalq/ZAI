@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "SafeMath.sol";
 import "./TokenLib.sol";
 import "./StorageStateful.sol";
 
@@ -12,8 +12,7 @@ contract TokenDelegate is StorageStateful
         public
         returns (bool)
     {
-        require(to != address(0));
-        require(value <= TokenLib.getBalance(_storage, msg.sender));
+        require(value <= TokenLib.getBalance(_storage, msg.sender), "Cannot send more tokens than you have");
 
         subBalance(msg.sender, value);
         addBalance(to, value);

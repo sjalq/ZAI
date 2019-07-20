@@ -9,5 +9,5 @@ library TokenLib {
         returns (uint256)
     {
         return self.getUint(keccak256( abi.encodePacked(balanceHolder)));
-            }
+    }
 }
